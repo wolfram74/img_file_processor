@@ -1,6 +1,7 @@
 *.pyc
 *.img
 *.png
-*.txt
+output_results/*
+
 venv
 .python-version
