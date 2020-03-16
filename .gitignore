@@ -1,3 +1,6 @@
 *.pyc
 *.img
 *.png
+*.txt
+venv
+.python-version

@@ -4,7 +4,8 @@ import cv2
 import scipy.optimize as opt
 import time
 
-def twoD_Gaussian((x, y), amplitude, xo, yo, sigma_x, sigma_y, theta, offset):
+def twoD_Gaussian(x_y, amplitude, xo, yo, sigma_x, sigma_y, theta, offset):
+    x, y = x_y
     xo = float(xo)
     yo = float(yo)
     a = (numpy.cos(theta)**2)/(2*sigma_x**2) + (numpy.sin(theta)**2)/(2*sigma_y**2)
@@ -89,8 +90,9 @@ def process_blob(center, data):
     miny = center[1]-20
     maxy = center[1]+20
     subset = data[miny:maxy, minx:maxx]
-    test = './%d-%d.png' % center
-    converter(subset, test)
+    #save png of each individual blob
+    # test = './%d-%d.png' % center
+    # converter(subset, test)
     gaussian_params = fit_blob_to_gaussian(subset)
     return gaussian_params[0]*gaussian_params[1]*gaussian_params[2]
 
